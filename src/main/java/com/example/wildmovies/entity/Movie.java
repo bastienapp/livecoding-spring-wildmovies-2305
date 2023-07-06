@@ -1,12 +1,16 @@
 package com.example.wildmovies.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
-// préférer LocalDate et LocalDateTime à java.util.Date ou java.sql.Date
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Movie {
 
     @Id
