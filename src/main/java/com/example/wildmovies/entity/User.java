@@ -2,7 +2,6 @@ package com.example.wildmovies.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
