@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +28,9 @@ public class Movie {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToMany(mappedBy = "favouriteMovies")
+    Set<User> userAddedToFavourite = new HashSet<>();
 
     public Movie() {
     }
@@ -75,5 +80,13 @@ public class Movie {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Set<User> getUserAddedToFavourite() {
+        return userAddedToFavourite;
+    }
+
+    public void setUserAddedToFavourite(Set<User> userAddedToFavourite) {
+        this.userAddedToFavourite = userAddedToFavourite;
     }
 }
