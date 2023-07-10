@@ -54,7 +54,6 @@ public class UserController {
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND, "Movie not found with id " + movieId));
         // ajouter le film à la liste des favoris de l'utilisateur
-        // que faire si le film est déjà présent ?
         Set<Movie> favouriteList = user.getFavouriteMovies();
         favouriteList.add(movie);
 
